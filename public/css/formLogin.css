@@ -1,0 +1,276 @@
+@import url(./reset.css);
+@import url(../parciales/cabecera-menu.css);
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Code+Latin:wght@500&family=Montserrat&family=Seymour+One&display=swap");
+
+:root {
+  --col-login: 350px;
+  --col-nuevo: 418px;
+  --fuente-texto: "Montserrat", sans-serif;
+  --fuente-logo: "M PLUS Code Latin", monospace;
+  --fuente-logo-span: "Seymour One", sans-serif;
+  --color-principal: #ff4066;
+  --color-texto: #332629;
+  --color-fondo-caja: #332629a6;
+  --color-orange: #f9ab40;
+  --color-aguamarina: #76a6b8;
+  --color-blue-grotto: #00619c;
+  --color-coral: #ff7077;
+  --color-gris-claro: #efefef;
+  --color-boton-borde: #ff4b2b;
+  --color-boton-background: #ff445c;
+  --texto-size: 16px;
+}
+
+html,
+body {
+  background-color: var(--color-gris-claro);
+  color: var(--color-texto);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-size);
+  letter-spacing: 1.1px;
+}
+
+.container-principal {
+  max-width: 1250px;
+  min-width: 1150px;
+  margin: 30px auto 30px;
+  padding: 0;
+  width: 95%;
+  background-color: #fff;
+  border: 2px dotted #fff;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.container-principal button {
+  border-radius: 20px;
+  border: 1px solid var(--color-boton-borde);
+  background-color: var(--color-boton-background);
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 auto;
+  width: 170px;
+  transition: transform 80ms ease-in;
+}
+
+.container-principal button:active {
+  transform: scale(0.95);
+}
+
+.container-principal button:focus {
+  outline: none;
+}
+
+.container-principal button:hover {
+  background-color: var(--color-coral);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: content;
+  padding: 20px 0;
+}
+
+/* Contenedpr de los formularios de login y nueva cuenta. Se configura como grid de dos columnas y una fina para situar a izquierda login y a derecha nuevo y velo */
+.contenedor-forms {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 768px;
+  max-width: 100%;
+  min-height: 480px;
+  display: grid;
+  /* grid-template-columns: repeat(2, 1fr); */
+  grid-template-columns: var(--col-login) var(--col-nuevo);
+  grid-template-rows: 480px;
+}
+
+/* Estilos comunes para los formularios */
+.contenedor-forms form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+  gap: 12px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+/* Colocamos el formulario de login en el grid */
+.contenedor-login {
+  grid-column: 1 / 2;
+  grid-row: 1 /2;
+}
+
+/* Estilos para contenedor de formulario de nueva cuenta */
+.contenedor-nuevo {
+  grid-column: 2 / 3;
+  grid-row: 1 /2;
+}
+
+/* Estilps para los grupos de input y label. Posición relativa para desplazar de forma absoluta la label */
+.grupo-entrada {
+  position: relative;
+  width: 95%;
+  margin: 5px auto;
+}
+
+/* Estilos para grupos de elementos dobles en una línea */
+.campo-doble {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  margin: 5px 10px;
+}
+
+/* Estilos de los elementos de entrada de datos */
+.grupo-entrada input,
+.grupo-entrada select {
+  border: 0;
+  outline: 0;
+  background: #eee;
+  border: none;
+  color: var(--color-label);
+  font-family: var(--fuente-texto);
+  font-size: 0.9rem;
+  padding: 10px 10px;
+  width: 95%;
+  transition: all 0.3s ease-in-out;
+}
+
+.campo-doble input {
+  width: 90%;
+}
+
+/* Estilo de botones para centrarlos. El resto de estilos se aplican desde comun.css */
+.grupo-entrada button {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Estilos de las label de los formularios. Se posicionen para desplazarlas */
+.grupo-entrada label {
+  color: var(--color-label);
+  font-size: 0.9rem;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Estilos del panel desplazable sobre los formularios */
+.velo {
+  color: white;
+  grid-column: 2 / 3;
+  grid-row: 1 /2;
+  background-color: var(--color-principal);
+  background-image: url(../imagenes/fondonegro.jpg);
+  background-size: 110%;
+  object-fit: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+  transition: all 0.5s ease-in-out;
+}
+
+/* Estilos generales de los paneles del velo. Un panel para cada formulario */
+.velo-panel {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 0 40px;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  transform: translateY(0);
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;
+}
+
+/* Panel izquierdo. Formulario de login */
+.velo-izquierda {
+  transform: translateX(100%);
+  transition: transform 0.6s ease-in-out;
+}
+
+/* Panel derecho. Formulario de nueva cuenta */
+.velo-derecha {
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
+
+/* Encabezados de paneles y formularios */
+.contenedor-forms form h2,
+.velo h2 {
+  font-size: 1.7rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+}
+
+/* Estilos de párrafo */
+.contenedor-forms p {
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  margin: 20px 0 30px;
+}
+
+/* Estilos de botones sobre paneles con fondo de color */
+button.boton-panel {
+  background-color: transparent;
+  border-color: #fff;
+}
+
+/* Estilos para desplazamientos de elementos  */
+/* Desplazamiento de formularios */
+form.login {
+  transform: translateY(0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.contenedor-nuevo {
+  overflow-y: auto;
+}
+
+form.nuevo {
+  transform: translateY(-100%);
+  transition: transform 0.6s ease-in-out;
+}
+
+/* Estilos para input y label al obtener el foco */
+.input-foco {
+  background-color: var(--color-aguamarina);
+}
+
+.label-foco {
+  font-size: 12px;
+  color: var(--color-fondo-caja);
+  position: relative;
+  top: -15px;
+}
+
+/**********************************/
+/* Truco para ocultar el placeholder por defecto de los input date */
+input[type="date"]:required:invalid {
+  color: transparent;
+}
+
+input[type="date"]:focus {
+  color: var(--fuente-texto) !important;
+}
+
+.mensaje-db {
+  text-align: center;
+}

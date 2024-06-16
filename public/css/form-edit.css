@@ -1,0 +1,178 @@
+/* @import url("./comun.css"); */
+@import url("../parciales/cabecera-menu.css");
+
+:root {
+    --col-login: 350px;
+    --col-nuevo: 418px;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: content;
+    padding: 20px 0;
+}
+
+/* Contenedpr de los formularios de login y nueva cuenta. Se configura como grid de dos columnas y una fina para situar a izquierda login y a derecha nuevo y velo */
+.contenedor-forms {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, .2);
+    width: 800px;
+    height: 660px;
+    margin: 20px auto;
+}
+
+/* Estilos comunes para los formularios */
+.contenedor-forms form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100%;
+    gap: 12px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+/* Estilps para los grupos de input y label. Posición relativa para desplazar de forma absoluta la label */
+.grupo-entrada {
+    position: relative;
+    width: 95%;
+    margin: 5px auto;
+}
+
+/* Estilos para grupos de elementos dobles en una línea */
+.campo-doble {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin: 5px 10px;
+}
+
+/* Estilos de los elementos de entrada de datos */
+.grupo-entrada input,
+.grupo-entrada select {
+    border: none;
+    border-bottom: 3px solid transparent;
+    background: #eee;
+    color: var(--color-label);
+    font-family: var(--fuente-texto);
+    font-size: .9rem;
+    outline: 0;
+    padding: 10px 10px;
+    width: 95%;
+    transition: all .3s ease-in-out;
+}
+
+.campo-doble input {
+    width: 90%;
+}
+
+/* Estilo de botones para centrarlos. El resto de estilos se aplican desde comun.css */
+.grupo-entrada button {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Estilos de las label de los formularios. Se posicionen para desplazarlas */
+.grupo-entrada label {
+    position: absolute;
+    left: 10px;
+    font-size: 12px;
+    color: var(--color-fondo-caja);
+    top: -15px;
+}
+
+/* Encabezados  formulario */
+.contenedor-forms form h2 {
+    font-size: 1.7rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+}
+
+/* Estilos para input y label al obtener el foco */
+.grupo-entrada input:focus,
+.grupo-entrada select:focus {
+    border-bottom-color: var(--color-aguamarina);
+}
+
+
+/**********************************/
+/* Truco para ocultar el placeholder por defecto de los input date */
+/**********************************/
+input[type=date]:required:invalid {
+    color: transparent;
+}
+
+input[type=date]:focus {
+    color: var(--fuente-texto) !important;
+}
+
+/******************************************/
+/* Estilos para el avatar y su selección */
+.grupo-avatar input[type="file"] {
+    display: none;
+}
+
+.grupo-avatar {
+    display: grid;
+    grid-template-columns: 250px 100px;
+    grid-template-rows: 130px 30px;
+    column-gap: 20px;
+    row-gap: 10px;
+    width: 95%;
+}
+
+.grupo-avatar .grupo-entrada {
+    grid-column: 1 /2;
+    grid-row: 1 / 2;
+    align-self: end;
+}
+
+.grupo-avatar .elige-avatar {
+    grid-column: 2 /3;
+    grid-row: 2 / 3;
+    justify-self: center;
+    align-self: top;
+}
+
+.grupo-avatar canvas {
+    border-radius: 10px;
+    width: 100px;
+    height: 130px;
+    grid-column: 2 /3;
+    grid-row: 1 / 2;
+    border: 1px dotted var(--color-gris-claro);
+    box-shadow: 3px 2px 2px rgba(0, 0, 0, 0.10), 0 1px 4px rgba(0, 0, 0, 0.10);
+}
+
+.elige-avatar label {
+    border-radius: 20px;
+    border: 1px solid var(--color-boton-borde);
+    background-color: var(--color-boton-background);
+    color: #fff;
+    cursor: pointer;
+    font-size: .7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 8px 10px;
+    transition: transform 80ms ease-in;
+}
+
+.elige-avatar label:hover {
+    background-color: var(--color-coral);
+}
+
+/******************************************/
+/* Estilos para el mensaje de respuesta  */
+
+.mensaje-db:not(:empty) {
+    color: white;
+    justify-self: center;
+    align-self: center;
+    background-color: var(--color-blue-grotto);
+    padding: 10px;
+}

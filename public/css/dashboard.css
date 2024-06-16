@@ -1,0 +1,322 @@
+@import url("../../public/css/reset.css");
+@import url("https://fonts.googleapis.com/css2?family=Protest+Revolution&family=Protest+Strike&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+:root {
+  --fuente1: "Lobster", sans-serif;
+  --fuente2: "Protest Strike", sans-serif;
+  --espacio: 1vw;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+/*********************/
+/* ESTILOS PARA BODY */
+/*********************/
+body {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../../public/imagenes/fondo-puente.jpg);
+  backdrop-filter: blur(10px);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: fixed;
+  background-position: center;
+  overflow-x: hidden;
+}
+
+.dashboard {
+  width: 98%;
+  justify-items: center;
+  display: grid;
+  grid-template-rows: 0.544fr 0.124fr 0.104fr 0.256fr;
+  grid-template-columns: 1.152fr 0.118fr 0.352fr 0.096fr 0.176fr 0.333fr 0.82fr;
+  grid-gap: var(--espacio);
+  gap: 1%;
+  position: relative;
+  padding: 20px;
+  transition: top 0.8s ease-in-out;
+}
+
+.panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px dotted black;
+  border-radius: 25px;
+}
+
+.panel img {
+  width: 100%;
+  height: 100%;
+}
+
+article {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  text-align: center;
+  cursor: pointer;
+}
+
+figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  text-align: center;
+}
+
+/********************************/
+/* EFECTOS PARA MOSTRAR EL VELO */
+/********************************/
+figcaption:before,
+figcaption:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(130, 123, 123, 0.5);
+  z-index: -1;
+
+  transform: scaleY(0);
+  transition: 0.3s;
+  transform-origin: bottom;
+}
+
+figcaption:before {
+  height: 150%;
+}
+
+figcaption:after {
+  height: 120%;
+}
+
+article:hover figcaption:before,
+article:hover figcaption:after {
+  transform: scaleY(1);
+}
+
+figcaption div {
+  transition: 0.3s transform;
+}
+
+figcaption > div {
+  transform: translateY(100%);
+  overflow: hidden;
+}
+
+figcaption > div div {
+  transform: translateY(-100%);
+}
+
+.panel figcaption h3 {
+  color: #fdfdfd;
+  font-size: 30px;
+  font-family: var(--fuente2);
+  padding: 5px;
+}
+
+article:hover figcaption div {
+  transform: none;
+}
+
+/**************************/
+/* POSICIONAMIENTO VIÑETAS*/
+/**************************/
+.usuarios {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+
+.categorias {
+  grid-column: 2 / 6;
+  grid-row: 1 / 5;
+}
+
+.comentarios {
+  grid-column: 6 / 8;
+  grid-row: 1 / 3;
+}
+
+.cursos {
+  grid-column: 1 / 2;
+  grid-row: 3 / 6;
+}
+
+.lecciones {
+  grid-column: 2 / 6;
+  grid-row: 5 / 6;
+}
+
+.suscripciones {
+  grid-column: 6/ 8;
+  grid-row: 3 / 6;
+}
+
+/*************************/
+/* ESTILOS PARA EL BOTÓN */
+/*************************/
+
+.ui-btn {
+  --btn-default-bg: rgb(41, 41, 41);
+  --btn-padding: 15px 20px;
+  --btn-hover-bg: rgb(51, 51, 51);
+  --btn-transition: .3s;
+  --btn-letter-spacing: .1rem;
+  --btn-animation-duration: 1.2s;
+  --btn-shadow-color: rgba(0, 0, 0, 0.137);
+  --btn-shadow: 0 2px 10px 0 var(--btn-shadow-color);
+  --hover-btn-color: #FAC921;
+  --default-btn-color: #fff;
+  --font-size: 16px;
+  --font-weight: 600;
+  --font-family: Menlo,Roboto Mono,monospace;
+}
+
+.ui-btn {
+  box-sizing: border-box;
+  padding: var(--btn-padding);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--default-btn-color);
+  font: var(--font-weight) var(--font-size) var(--font-family);
+  background: var(--btn-default-bg);
+  border: none;
+  cursor: pointer;
+  transition: var(--btn-transition);
+  overflow: hidden;
+  box-shadow: var(--btn-shadow);
+  border-radius: 25px;
+}
+
+.ui-btn span {
+  letter-spacing: var(--btn-letter-spacing);
+  transition: var(--btn-transition);
+  box-sizing: border-box;
+  position: relative;
+  background: inherit;
+}
+
+.ui-btn span::before {
+  box-sizing: border-box;
+  position: absolute;
+  content: "";
+  background: inherit;
+}
+
+.ui-btn:hover, .ui-btn:focus {
+  background: var(--btn-hover-bg);
+}
+
+.ui-btn:hover span, .ui-btn:focus span {
+  color: var(--hover-btn-color);
+}
+
+.ui-btn:hover span::before, .ui-btn:focus span::before {
+  animation: chitchat linear both var(--btn-animation-duration);
+}
+
+@keyframes chitchat {
+  0% {
+    content: "#";
+  }
+
+  5% {
+    content: ".";
+  }
+
+  10% {
+    content: "^{";
+  }
+
+  15% {
+    content: "-!";
+  }
+
+  20% {
+    content: "#$_";
+  }
+
+  25% {
+    content: "№:0";
+  }
+
+  30% {
+    content: "#{+.";
+  }
+
+  35% {
+    content: "@}-?";
+  }
+
+  40% {
+    content: "?{4@%";
+  }
+
+  45% {
+    content: "=.,^!";
+  }
+
+  50% {
+    content: "?2@%";
+  }
+
+  55% {
+    content: "\;1}]";
+  }
+
+  60% {
+    content: "?{%:%";
+    right: 0;
+  }
+
+  65% {
+    content: "|{f[4";
+    right: 0;
+  }
+
+  70% {
+    content: "{4%0%";
+    right: 0;
+  }
+
+  75% {
+    content: "'1_0<";
+    right: 0;
+  }
+
+  80% {
+    content: "{0%";
+    right: 0;
+  }
+
+  85% {
+    content: "]>'";
+    right: 0;
+  }
+
+  90% {
+    content: "4";
+    right: 0;
+  }
+
+  95% {
+    content: "2";
+    right: 0;
+  }
+
+  100% {
+    content: "";
+    right: 0;
+  }
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form-Login</title>
+    <!-- Icono App -->
+    <link rel="shortcut icon" href="../public/imagenes/iconos/icono-app.png" />
+    <!-- Hoja de Estilos CSS -->
+    <link rel="stylesheet" href="../public/css/formLogin.css" />
+    <!-- Kit FontAwesome -->
+    <script
+      src="https://kit.fontawesome.com/7d303211a2.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="module" src="../public/script/login.js"></script>
+  </head>
+  <body>
+    <div class="container-principal">
+      <main>
+        <section class="contenedor-forms">
+          <article class="contenedor-login">
+            <form class="login" name="login" action="" method="post">
+              <h2>Inicia sesión</h2>
+              <div class="grupo-entrada">
+                <input
+                  type="text"
+                  name="username_login"
+                  id="usuario"
+                  required
+                  data-error="Por favor introduzca su usuario"
+                />
+                <label for="usuario" id="lusuario">Usuario</label>
+              </div>
+
+              <div class="grupo-entrada">
+                <input
+                  type="password"
+                  name="password_login"
+                  id="clave"
+                  required
+                  data-error="Por favor introduzca su contraseña"
+                />
+                <label for="clave" id="lclave">Contraseña</label>
+              </div>
+
+              <div class="grupo-entrada">
+                <button id="login">Entrar</button>
+              </div>
+            </form>
+          </article>
+
+          <article class="contenedor-nuevo">
+            <form
+              class="nuevo"
+              name="formNewUser"
+              id="formNewUser"
+              action=""
+              method="post"
+            >
+              <h2>Crea tu cuenta</h2>
+
+              <div class="grupo-entrada">
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  required
+                  data-error="Por favor introduce tu nombre de usuario"
+                />
+                <label for="email">Username</label>
+              </div>
+
+              <div class="grupo-entrada">
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  required
+                  data-error="Por favor introduce tu email"
+                />
+                <label for="email">Email</label>
+              </div>
+
+              <div class="grupo-entrada">
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  required
+                  data-error="Por favor introduce tu contraseña"
+                />
+                <label for="password" id="lpassword">Crea una contraseña</label>
+              </div>
+
+              <div class="grupo-entrada">
+                <input
+                  type="password"
+                  name="password2"
+                  id="password2"
+                  required
+                  data-error="Por favor introduce tu contraseña"
+                />
+                <label for="password2" id="lpassword2"
+                  >Repite la contraseña</label
+                >
+              </div>
+
+              <div class="grupo-entrada boton">
+                <button id="btnNewUser">Crear cuenta</button>
+              </div>
+              <div class="mensaje-db"></div>
+            </form>
+          </article>
+          <article class="velo">
+            <div class="velo-panel velo-izquierda">
+              <h2>¡Bienvenido!</h2>
+              <p>
+                Para mantenerte conectado con nosotros, inicia sesión con tu
+                información personal
+              </p>
+              <button class="boton-panel" id="btnIzquierda">
+                Inicia sesión
+              </button>
+            </div>
+            <div class="velo-panel velo-derecha">
+              <h2>¡Hola!</h2>
+              <p>
+                Completa el formulario para crear una cuenta y comienza tu viaje
+                con nosotros
+              </p>
+              <button class="boton-panel" id="btnDerecha">Crear cuenta</button>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

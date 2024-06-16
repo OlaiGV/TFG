@@ -1,0 +1,149 @@
+@import url('./reset.css');
+@import url('./estilos-btn.css');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+:root {
+  --color-title: #001a49;
+  --primary: rgb(145, 197, 145);
+  --blanco: #fff;
+  --btn: rgba(0, 0, 0, 0.15);
+  --padding-container: 80px 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  user-select: none;
+}
+
+/* Estilos para todos los contenedores */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: var(--padding-container);
+}
+
+/* Estilos para el header */
+header {
+  --padding-container: 0;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 800px;
+  position: relative;
+  display: grid;
+  grid-template-rows: 100px 1fr 100px;
+  color: var(--blanco);
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Asignar un gradiente a la imagen de fondo para aplicar ese aspecto difuminado */
+  background-image: url("../imagenes/fondo-landing.jpg");
+  background-image: url("../imagenes/team.jpg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  /* Propiedad css que permite establecer dicho aspecto */
+  clip-path: polygon(0 0, 100% 0, 100% 95%, -50% 85%, 0 80%);
+  z-index: -1;
+}
+
+/* Estilos para el NAV */
+.nav__header {
+  --padding-container: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__title,
+.nav__link {
+  font-weight: 700;
+}
+
+.nav__link {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  align-items: center;
+  justify-items: center;
+  gap: 2em;
+}
+
+.nav__menu {
+  margin-left: auto;
+  cursor: pointer;
+  display: none;
+}
+
+.nav__img {
+  display: block;
+  width: 30px;
+}
+
+.nav__close {
+  /* display: none ; */
+  display: var(--show, none) !important;
+}
+
+/* Estilos para el section del header */
+.section__header {
+  max-width: 800px;
+  display: grid;
+  grid-auto-rows: max-content;
+  align-content: center;
+  gap: 1em;
+  padding-bottom: 100px;
+  text-align: center;
+}
+
+/* Efecto máquina de escribir */
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  border-right: 0.15em solid orange;
+  letter-spacing: 0.15em;
+  animation: typing 3.5s steps(22, end) forwards,
+    blink-caret 0.75s step-end infinite;
+  font-size: 3rem;
+  justify-self: center;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  backdrop-filter: blur(6px);
+}
+
+/* Efecto de máquina de escribir */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 12ch; /* Número de caracteres del texto */
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
+
+.section__header_paragraph {
+  font-size: 35px;
+  color: white;
+  font-weight: bolder;
+  backdrop-filter: blur(3px);
+  border-radius: 25px;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeMaster</title>
+    <!-- Icono App -->
+    <link rel="shortcut icon" href="../public/imagenes/iconos/icono-app.png" />
+
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="../public/css/categorias.css" />
+
+    <!-- Kit FontAwesome -->
+    <script
+      src="https://kit.fontawesome.com/7d303211a2.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Enlaces JavaScript -->
+    <script type="module" src="../public/script/categorias.js"></script>
+  </head>
+  <body>
+    <div class="container-principal">
+      <main>
+        <!-- Contenedor que muestra las categorías de los cursos, permitirá al 
+          usuario mostrar los cursos que pertenecen a esa categoría -->
+        <article class="categorias"></article>
+        <article class="cursos-categorias"></article>
+      </main>
+    </div>
+
+    <!-- Script que permite que las cartas se puedan voltear -->
+    <script>
+      function rotarFicha(evento) {
+        //closest -> ancestro más próximo desde el selector. Conceptualmente es como querySelector pero desde un elemento y circunscrito a los ancestros de ese elemento. querySelector se realiza desde document con lo que encuentra todas las referencias (querySelectorAll) o solo la primera (queryselector). Para realizar el volteo tenemos que referir el contenedor de front y back para la asignación de las clases
+        let elemento = evento.target.closest(".carta");
+        console.log(elemento);
+
+        //Hay que prestar atención al orden de las fichas front y back en el flujo HTML
+        elemento.children[0].classList.toggle("giraback");
+        elemento.children[1].classList.toggle("girafront");
+      }
+    </script>
+  </body>
+</html>

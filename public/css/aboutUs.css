@@ -1,0 +1,58 @@
+@import url("./comun.css");
+@import url("../parciales/cabecera-menu.css");
+@import url("./testimony.css");
+@import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+
+:root {
+  --fuente: "Caveat", cursive;
+  --fuente-logo: "Pacifico", cursive;
+  --fuente-eslogan: "Abril Fatface", serif;
+  --color-letra-MarronClara: #503627;
+  --color-letra-clara: #dceef2;
+  --color-letra-oscura: #333;
+  --fondo-marron-oscuro: #403836;
+  --fondo-marron-medio-claro: #73655a;
+  --fondo-marron-claro: #8c7e72;
+}
+
+* {
+  user-select: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 700px;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5em;
+  background-image: url(../imagenes/fondo-puente.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; /* Ajusta la imagen al tamaño del contenedor */
+  background-position: center; /* Centra la imagen en el contenedor */
+}
+
+h2 {
+  font-size: 30px;
+  color: var(--color-letra-oscura);
+  font-family: var(--fuente-logo);
+  justify-content: center;
+  align-self: center;
+}
+
+.container-principal nav .btnTestimony {
+  width: 0.75rem !important;
+  height: 0.75rem !important;
+  border-radius: 1rem;
+  border: none;
+  background-color: beige;
+  cursor: pointer;
+  margin: 0 0.1rem;
+  transition: width 0.3s;
+}
+
+.expand {
+  width: 1.75rem;
+}

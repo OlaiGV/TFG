@@ -1,0 +1,146 @@
+header {
+    background-image: url("../imagenes/fondo-landing.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: sticky;
+    top: -180px;
+    z-index: 3;
+}
+
+.logo-menu {
+    height: 70px;
+    width: 100%;
+    background-color: var(--color-fondo-caja);
+    border: 3px solid #efefef;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+
+header .logo-menu .logo {
+    color: var(--color-gris-claro);
+    font-size: 2.3em;
+    margin-left: 20px;
+    font-family: var(--fuente-logo);
+}
+
+header .logo-menu .logo span {
+    display: inline-block;
+    font-family: var(--fuente-logo-span);
+    font-weight: bold;
+}
+
+header .logo-menu .logo span:nth-of-type(1) {
+    color: var(--color-principal);
+    border-bottom: 5px solid var(--color-orange);
+}
+
+header .logo-menu .logo span:nth-of-type(2) {
+    color: var(--color-orange);
+    border-top: 5px solid var(--color-principal);
+}
+
+header .logo-menu nav {
+    height: inherit;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+header .logo-menu nav button {
+    border-radius: 20px;
+    border: 1px solid var(--color-boton-borde);
+    background: var(--color-boton-background);
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    width: 170px;
+    transition: transform 80ms ease-in;
+}
+
+main {
+    margin: 10px auto 10px;
+    padding: 0;
+    width: 95%;
+}
+
+/**********************************/
+/* Nuevo estilos para submenús */
+/**********************************/
+
+.logo-menu .logo:hover {
+    cursor: pointer;
+    filter: drop-shadow(15px 8px 15px var(--color-boton-background)) brightness(0.8);
+}
+
+/* Position para colocar de forma absoluta el panel oculto y no desplazar el botón primario */
+.item-menu {
+    position: relative;
+}
+
+/* Color de fondo transparente y un padding superior que se solapa sobre el botón primario. De esta manera estaremos simepre sobre el botón o sobre el panel para que no desaparezca*/
+
+.item-menu .submenu {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    padding-top: 55px;
+    position: absolute;
+    top: 0;
+}
+
+.item-menu .submenu button {
+    background-color: var(--color-blue-grotto);
+    border-color: transparent;
+    border-radius: 0%;
+    border-bottom: 2px solid var(--color-orange);
+}
+
+.item-menu .submenu button:hover {
+    background-color: var(--color-aguamarina);
+}
+
+/* Efectos de botones primer nivel */
+header .logo-menu nav button:active {
+    transform: scale(.95);
+}
+
+header .logo-menu nav button:focus {
+    outline: none;
+}
+
+header .logo-menu nav button:hover {
+    background-color: var(--color-coral);
+}
+
+.item-menu .oculto {
+    transform: scaleY(0);
+    transition: transform .3s ease-in-out;
+}
+
+.item-menu>button:hover+.oculto {
+    transform: scaleY(100%);
+    transform-origin: bottom;
+}
+
+/* Mientras estemos en el panel, éste estará visible */
+.item-menu .oculto:hover {
+    transform: scaleY(100%);
+}

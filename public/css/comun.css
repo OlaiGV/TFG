@@ -1,0 +1,67 @@
+@import url('./reset.css');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Code+Latin:wght@500&family=Montserrat&family=Seymour+One&display=swap');
+
+:root {
+    --fuente-texto: "Montserrat", sans-serif;
+    --fuente-logo: "M PLUS Code Latin", monospace;
+    --fuente-logo-span: "Seymour One", sans-serif;
+    --color-principal: #FF4066;
+    --color-texto: #332629;
+    --color-fondo-caja: #332629A6;
+    --color-orange: #F9AB40;
+    --color-aguamarina: #76A6B8;
+    --color-blue-grotto: #00619C;
+    --color-coral: #FF7077;
+    --color-gris-claro: #efefef;
+    --color-boton-borde: #ff4b2b;
+    --color-boton-background: #ff445c;
+    --texto-size: 16px;
+}
+
+html,
+body {
+    background-color: var(--color-gris-claro);
+    color: var(--color-texto);
+    font-family: var(--fuente-texto);
+    font-size: var(--texto-size);
+    letter-spacing: 1.1px;
+}
+
+.container-principal {
+    max-width: 1250px;
+    min-width: 1150px;
+    margin: 30px auto 30px;
+    padding: 0;
+    width: 95%;
+    background-color: #fff;
+    border: 2px dotted #fff;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.10), 0 3px 6px rgba(0, 0, 0, 0.10);
+}
+
+.container-principal button {
+    border-radius: 20px;
+    border: 1px solid var(--color-boton-borde);
+    background-color: var(--color-boton-background);
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0 auto;
+    width: 170px;
+    transition: transform 80ms ease-in;
+}
+
+.container-principal button:active {
+    transform: scale(.95);
+}
+
+.container-principal button:focus {
+    outline: none;
+}
+
+.container-principal button:hover {
+    background-color: var(--color-coral);
+}

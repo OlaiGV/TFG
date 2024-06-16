@@ -1,0 +1,142 @@
+/* Estilos para el contenedor de testimonios */
+.testimony {
+  display: grid;
+  place-items: center;
+}
+
+.testimony__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  overflow: hidden;
+  max-height: 500px;
+  border: 1px dashed black;
+  border-radius: 25px;
+  padding: 15px;
+  backdrop-filter: blur(6px);
+}
+
+.slider {
+  width: min(90vw, 500px);
+  height: 300px;
+  list-style-type: none;
+  display: flex;
+  transition: transform 1.25s;
+}
+
+.item {
+  position: relative;
+  min-width: 100%;
+  height: inherit;
+  display: flex;
+  align-items: center;
+
+  & .testimonial {
+    width: 65%;
+    padding: 2rem;
+    padding-right: 5rem;
+    background-color: var(--primary);
+    /* color: white; */
+    color: darkolivegreen;
+    border-radius: 0.75rem;
+    font: 100 0.7rem/1.6 helvetica, sans-serif;
+    opacity: 0;
+    transform: translateX(125px);
+
+    & p {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    & p:nth-of-type(1) {
+      font-weight: 900;
+      font-size: 0.9rem;
+    }
+
+    & p:nth-of-type(2) {
+      font-style: italic;
+      font-weight: 400;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.7);
+      color: darkolivegreen;
+    }
+
+    & p:nth-of-type(3) {
+      color: rgba(255, 255, 255, 0.7);
+      color: darkolivegreen;
+      font-weight: bolder;
+      font-size: 0.65rem;
+    }
+  }
+
+  & .image {
+    position: absolute;
+    right: 0;
+    z-index: 10;
+    width: 250px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+    transform: translateX(-25px);
+  }
+}
+
+.animation {
+  & .image {
+    animation: image 1.25s ease-out forwards;
+  }
+
+  & .testimonial {
+    animation: testimonial 1s ease-out forwards;
+
+    & p:nth-of-type(1) {
+      animation: content 1s forwards 0.75s;
+    }
+    & p:nth-of-type(2) {
+      animation: content 1s forwards 1s;
+    }
+    & p:nth-of-type(3) {
+      animation: content 1s forwards 1.25s;
+    }
+  }
+}
+
+@keyframes image {
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes testimonial {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes content {
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btnTestimony {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: var(--btn);
+  cursor: pointer;
+  margin: 0 0.1rem;
+  transition: width 0.3s;
+}
+
+.expand {
+  width: 1.75rem;
+}
